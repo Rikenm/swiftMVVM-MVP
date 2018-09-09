@@ -28,14 +28,17 @@ class DependencyRegistry {
         }.inObjectScope(.container)
 
         container.register(ModelLayer.self){ r in
-            ModelLayer(dataLayer:        r.resolve(DataLayer.self)!,
-                             networkLayer:     r.resolve(NetworkLayer.self)!,
-                             translationLayer: r.resolve(TranslationLayer.self)!)
+            ModelLayer(
+                 networkLayer:     r.resolve(NetworkLayer.self)!,
+                dataLayer:     r.resolve(DataLayer.self)!,
+                             translationLayer: r.resolve(TranslationLayer.self)!
+                             
+                             )
         }.inObjectScope(.container)
     }
     
     func registerPresenters() {
-        container.register(SpyListPresenter.self) { r in SpyListPresenter(modelLayer: r.resolve(ModelLayer.self)!) }
+        container.register(SpyListPresenter.self) { r in SpyListPresenter(modelManager: r.resolve(ModelLayer.self)!) }
         container.register( DetailPresenter.self) { (r, spy: SpyDTO)  in DetailPresenter(with: spy) }
         container.register(SpyCellPresenter.self) { (r, spy: SpyDTO) in SpyCellPresenter(with: spy) }
         container.register(SecretDetailsPresenter.self) { (r, spy: SpyDTO) in SecretDetailsPresenter(with: spy) }
@@ -60,7 +63,7 @@ class DependencyRegistry {
     typealias SpyCellMaker = (UITableView, IndexPath, SpyDTO) -> SpyCell
     func makeSpyCell(for tableView: UITableView, at indexPath: IndexPath, spy: SpyDTO) -> SpyCell {
         let presenter = container.resolve(SpyCellPresenter.self, argument: spy)!
-        let cell = SpyCell.dequeue(from: tableView, for: indexPath, with: presenter)
+        let cell = SpyCell.dequeue(from: tableView, for: indexPath,  with: presenter)
         return cell
     }
     

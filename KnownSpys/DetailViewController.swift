@@ -14,6 +14,7 @@ class DetailViewController: UIViewController, SecretDetailsDelegate {
     @IBOutlet var genderLabel: UILabel!
     
     fileprivate var presenter: DetailPresenter!
+    fileprivate var secretDetailsViewControllerMaker: DependencyRegistry.SecretDetailsViewControllerMaker!
     
     
     
@@ -23,8 +24,10 @@ class DetailViewController: UIViewController, SecretDetailsDelegate {
         setupView()
     }
 
-    func configure(with presenter: DetailPresenter) {
+    func configure(with presenter: DetailPresenter,secretDetailsViewControllerMaker: @escaping DependencyRegistry.SecretDetailsViewControllerMaker) {
         self.presenter = presenter
+        
+        self.secretDetailsViewControllerMaker = secretDetailsViewControllerMaker
     }
     
     func setupView() {
@@ -39,8 +42,10 @@ class DetailViewController: UIViewController, SecretDetailsDelegate {
 extension DetailViewController {
     @IBAction func briefcaseTapped(_ button: UIButton) {
         
-        let secretDetailsPresenter = SecretDetailsPresenter(with: presenter.spy)
-        let vc = SecretDetailsViewController(with: secretDetailsPresenter, and: self as SecretDetailsDelegate)
+//        let secretDetailsPresenter = SecretDetailsPresenter(with: presenter.spy)
+        
+        let vc = secretDetailsViewControllerMaker(presenter.spy,self)
+//        let vc = SecretDetailsViewController(with: secretDetailsPresenter, and: self as SecretDetailsDelegate)
         
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -54,13 +59,5 @@ extension DetailViewController {
     }
 }
 
-//MARK: - Helper Methods
-extension DetailViewController {
-    static func fromStoryboard(with presenter: DetailPresenter) -> DetailViewController {
-        let vc = UIStoryboard.main.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-            vc.configure(with: presenter)
-        
-        return vc
-    }
-}
+
 

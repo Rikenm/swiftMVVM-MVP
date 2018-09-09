@@ -20,7 +20,12 @@ class SpyListPresenter{
     
     
      var data = [SpyDTO]()
-    fileprivate var modelLayer = ModelLayer()
+    fileprivate var modelLayer: ModelLayer
+    
+    init(modelManager: ModelLayer){
+        
+        self.modelLayer = modelManager
+    }
     
     
     

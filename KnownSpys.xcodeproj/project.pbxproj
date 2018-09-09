@@ -36,6 +36,8 @@
 		EACAEA6521457DAC001A4B60 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACAEA6421457DAC001A4B60 /* NetworkLayer.swift */; };
 		EACAEA6721457DC1001A4B60 /* ModelLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACAEA6621457DC1001A4B60 /* ModelLayer.swift */; };
 		EACAEA6921458AAB001A4B60 /* SpyTranslatorLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACAEA6821458AAB001A4B60 /* SpyTranslatorLayer.swift */; };
+		EACAEA722145B443001A4B60 /* SwinjectStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACAEA702145B443001A4B60 /* SwinjectStoryboard+Extensions.swift */; };
+		EACAEA732145B443001A4B60 /* DependencyRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACAEA712145B443001A4B60 /* DependencyRegistry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		EACAEA6421457DAC001A4B60 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		EACAEA6621457DC1001A4B60 /* ModelLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelLayer.swift; sourceTree = "<group>"; };
 		EACAEA6821458AAB001A4B60 /* SpyTranslatorLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyTranslatorLayer.swift; sourceTree = "<group>"; };
+		EACAEA702145B443001A4B60 /* SwinjectStoryboard+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Extensions.swift"; sourceTree = "<group>"; };
+		EACAEA712145B443001A4B60 /* DependencyRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyRegistry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +156,7 @@
 		0993B3811EA53470005C9B6F /* KnownSpys */ = {
 			isa = PBXGroup;
 			children = (
+				EACAEA6F2145B443001A4B60 /* Dependency */,
 				0993B3B21EA53F6A005C9B6F /* ModelLayer */,
 				0993B3AC1EA53D98005C9B6F /* UI */,
 				0993B3AB1EA53D8C005C9B6F /* Supporting Classes */,
@@ -267,6 +272,15 @@
 				EACAEA6821458AAB001A4B60 /* SpyTranslatorLayer.swift */,
 			);
 			name = Translation;
+			sourceTree = "<group>";
+		};
+		EACAEA6F2145B443001A4B60 /* Dependency */ = {
+			isa = PBXGroup;
+			children = (
+				EACAEA702145B443001A4B60 /* SwinjectStoryboard+Extensions.swift */,
+				EACAEA712145B443001A4B60 /* DependencyRegistry.swift */,
+			);
+			path = Dependency;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,6 +427,8 @@
 				EACAEA6521457DAC001A4B60 /* NetworkLayer.swift in Sources */,
 				EACAEA582144ACDF001A4B60 /* DetailPresenter.swift in Sources */,
 				EACAEA6721457DC1001A4B60 /* ModelLayer.swift in Sources */,
+				EACAEA732145B443001A4B60 /* DependencyRegistry.swift in Sources */,
+				EACAEA722145B443001A4B60 /* SwinjectStoryboard+Extensions.swift in Sources */,
 				0993B3A21EA53D3D005C9B6F /* SecretDetailsViewController.swift in Sources */,
 				EACAEA5C21456C05001A4B60 /* SpyCellPresenter.swift in Sources */,
 				EACAEA6321457D90001A4B60 /* DataLayer.swift in Sources */,

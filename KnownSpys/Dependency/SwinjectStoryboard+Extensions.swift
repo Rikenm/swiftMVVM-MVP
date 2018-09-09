@@ -22,8 +22,8 @@ extension SwinjectStoryboard {
                 
                 //NOTE: We don't have access to the constructor for this VC so we are using method injection
                 vc.configure(with: presenter,
-        detailViewControllerMaker: dependencyRegistry.makeDetailViewController,
-                     spyCellMaker: dependencyRegistry.makeSpyCell)
+                             detailViewControllerMaker: dependencyRegistry.makeDetailViewController,
+                             spyCellMaker: dependencyRegistry.makeSpyCell)
             }
         }
         

@@ -153,12 +153,11 @@ extension SpyCell {
         return bundle.loadNibNamed(SpyCell.cellId, owner: owner, options: nil)?.first as! SpyCell
     }
     
-    public static func dequeue(from tableView: UITableView, for indexPath: IndexPath, with spy: SpyDTO) -> SpyCell {
+    public static func dequeue(from tableView: UITableView, for indexPath: IndexPath, with presenter: SpyCellPresenter) -> SpyCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SpyCell.cellId, for: indexPath) as! SpyCell
         
-        let spyCellPresenter  = SpyCellPresenter(with: spy)
-        
-            cell.configure(with: spyCellPresenter)
+
+        cell.configure(with: presenter)
         return cell
     }
 }
