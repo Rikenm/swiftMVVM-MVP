@@ -9,9 +9,13 @@
 import Foundation
 typealias SpiesAndSourceBlock = (Source, [SpyDTO])->Void
 
+protocol ModelLayer {
+     func loadData(resultsLoaded: @escaping SpiesAndSourceBlock)
+}
 
 
-class ModelLayer{
+
+class ModelLayerImpl: ModelLayer{
     
     fileprivate var networkLayer : NetworkLayer
     fileprivate var dataLayer : DataLayer

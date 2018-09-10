@@ -69,8 +69,10 @@ class RootNavigationCoordinatorImpl: NavigationCoordinator {
     
     func showSecretDetails(arguments: Dictionary<String, Any>?) {
         guard let spy = arguments?["spy"] as? SpyDTO else { notifyNilArguments(); return }
+        
+        
 
-        let detailViewController = registry.makeSecretDetailsViewController(with: spy)
+        let detailViewController = registry.makeSecretDetailsViewController(with: spy) // here
         
         rootViewController.navigationController?.pushViewController(detailViewController, animated: true)
         navState = .atSecretDetails

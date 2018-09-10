@@ -5,7 +5,7 @@ import UIKit
 
 
 
-class DetailViewController: UIViewController, SecretDetailsDelegate {
+class DetailViewController: UIViewController {
     
     
     @IBOutlet var profileImage: UIImageView!
@@ -14,7 +14,10 @@ class DetailViewController: UIViewController, SecretDetailsDelegate {
     @IBOutlet var genderLabel: UILabel!
     
     fileprivate var presenter: DetailPresenter!
-    fileprivate var secretDetailsViewControllerMaker: DependencyRegistry.SecretDetailsViewControllerMaker!
+//    fileprivate var secretDetailsViewControllerMaker: DependencyRegistry.SecretDetailsViewControllerMaker!
+    
+     fileprivate weak var navigationCoordinator: NavigationCoordinator?
+    
     
     
     
@@ -23,11 +26,22 @@ class DetailViewController: UIViewController, SecretDetailsDelegate {
 
         setupView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if isMovingFromParentViewController {
+            navigationCoordinator?.movingBack()
+        }
+    }
 
-    func configure(with presenter: DetailPresenter,secretDetailsViewControllerMaker: @escaping DependencyRegistry.SecretDetailsViewControllerMaker) {
+//    func configure(with presenter: DetailPresenter,secretDetailsViewControllerMaker: @escaping DependencyRegistry.SecretDetailsViewControllerMaker) {
+     func configure(with presenter: DetailPresenter,navigationCoordinator: NavigationCoordinator ) {
         self.presenter = presenter
         
-        self.secretDetailsViewControllerMaker = secretDetailsViewControllerMaker
+//        self.secretDetailsViewControllerMaker = secretDetailsViewControllerMaker
+        
+        self.navigationCoordinator = navigationCoordinator
     }
     
     func setupView() {
@@ -44,20 +58,26 @@ extension DetailViewController {
         
 //        let secretDetailsPresenter = SecretDetailsPresenter(with: presenter.spy)
         
-        let vc = secretDetailsViewControllerMaker(presenter.spy,self)
+//        let vc = secretDetailsViewControllerMaker(presenter.spy,self) // when making coord
 //        let vc = SecretDetailsViewController(with: secretDetailsPresenter, and: self as SecretDetailsDelegate)
         
-        navigationController?.pushViewController(vc, animated: true)
+//        navigationController?.pushViewController(vc, animated: true) // when making coord
+        
+        
+        
+        let args  = ["spy":presenter.spy!]
+        
+        navigationCoordinator?.next(arguments: args)
     }
 }
 
 //MARK: - SecretDetailsDelegate
-extension DetailViewController {
-    func passwordCrackingFinished() {
-        //close middle layer too
-        navigationController?.popViewController(animated: true)
-    }
-}
+//extension DetailViewController {
+//    func passwordCrackingFinished() {
+//        //close middle layer too
+//        navigationController?.popViewController(animated: true)
+//    }
+//}
 
 
 

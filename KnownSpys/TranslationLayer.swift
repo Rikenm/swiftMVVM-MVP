@@ -13,9 +13,16 @@ import Outlaw
 
 import CoreData
 
+protocol TranslationLayer {
+    func createSpyDTOsFromJsonData(_ data: Data) -> [SpyDTO]
+     func toUnsavedCoreData(from dtos: [SpyDTO], with context: NSManagedObjectContext) -> [Spy]
+    func toSpyDTOs(from spies:[Spy]) -> [SpyDTO] 
+}
+
+
 
 //MARK: - Spy Translation Methods
-class TranslationLayer {
+class TranslationLayerImpl: TranslationLayer {
     
     fileprivate var spyTranslator: SpyTranslator
     

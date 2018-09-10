@@ -11,8 +11,12 @@ import Foundation
 import Alamofire
 
 
+protocol NetworkLayer {
+     func loadFromServer(finished: @escaping (Data) -> Void)
+}
 
-class NetworkLayer{
+
+class NetworkLayerImpl: NetworkLayer{
     
    
    

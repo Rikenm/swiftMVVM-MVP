@@ -38,6 +38,7 @@
 		EACAEA6921458AAB001A4B60 /* SpyTranslatorLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACAEA6821458AAB001A4B60 /* SpyTranslatorLayer.swift */; };
 		EACAEA722145B443001A4B60 /* SwinjectStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACAEA702145B443001A4B60 /* SwinjectStoryboard+Extensions.swift */; };
 		EACAEA732145B443001A4B60 /* DependencyRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACAEA712145B443001A4B60 /* DependencyRegistry.swift */; };
+		EACAEA7B214693CF001A4B60 /* RootNavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACAEA7A214693CF001A4B60 /* RootNavigationCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		EACAEA6821458AAB001A4B60 /* SpyTranslatorLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyTranslatorLayer.swift; sourceTree = "<group>"; };
 		EACAEA702145B443001A4B60 /* SwinjectStoryboard+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Extensions.swift"; sourceTree = "<group>"; };
 		EACAEA712145B443001A4B60 /* DependencyRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyRegistry.swift; sourceTree = "<group>"; };
+		EACAEA7A214693CF001A4B60 /* RootNavigationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootNavigationCoordinator.swift; path = Coordination/RootNavigationCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 		0993B3811EA53470005C9B6F /* KnownSpys */ = {
 			isa = PBXGroup;
 			children = (
+				EACAEA79214693B1001A4B60 /* NavigationCoordinator */,
 				EACAEA6F2145B443001A4B60 /* Dependency */,
 				0993B3B21EA53F6A005C9B6F /* ModelLayer */,
 				0993B3AC1EA53D98005C9B6F /* UI */,
@@ -281,6 +284,14 @@
 				EACAEA712145B443001A4B60 /* DependencyRegistry.swift */,
 			);
 			path = Dependency;
+			sourceTree = "<group>";
+		};
+		EACAEA79214693B1001A4B60 /* NavigationCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				EACAEA7A214693CF001A4B60 /* RootNavigationCoordinator.swift */,
+			);
+			name = NavigationCoordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,6 +443,7 @@
 				0993B3A21EA53D3D005C9B6F /* SecretDetailsViewController.swift in Sources */,
 				EACAEA5C21456C05001A4B60 /* SpyCellPresenter.swift in Sources */,
 				EACAEA6321457D90001A4B60 /* DataLayer.swift in Sources */,
+				EACAEA7B214693CF001A4B60 /* RootNavigationCoordinator.swift in Sources */,
 				EACAEA6121457179001A4B60 /* TranslationLayer.swift in Sources */,
 				EACAEA5E21456F41001A4B60 /* SpyCell.swift in Sources */,
 				EACAEA5A21456571001A4B60 /* SecretDetailsPresenter.swift in Sources */,
